@@ -18,14 +18,18 @@ export default function WhatsAppCTA() {
         // ===== CALL TO ACTION — WHATSAPP =====
         <div
             style={{
-                minHeight: isMobile ? 'auto' : '80vh',
+                minHeight: isMobile ? 'auto' : '70vh',
                 background: `linear-gradient(135deg, ${COLORS.primaryDark} 0%, ${COLORS.primary} 100%)`,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: isMobile ? '56px 20px' : '80px 40px',
+                padding: isMobile ? '30px 10px 30px' : '10px 40px 40px',
                 textAlign: 'center',
+                position: 'relative',
+                marginTop: '-40px',
+                zIndex: 12,
+                boxShadow: '0 -10px 30px rgba(0,0,0,0.15)',
             }}
         >
             {/* Ícone grande do WhatsApp */}

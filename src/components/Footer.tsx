@@ -12,11 +12,11 @@ export default function Footer() {
                 backgroundColor: COLORS.primaryDark,
                 color: 'rgba(255,255,255,0.75)',
                 fontFamily: 'Inter, sans-serif',
-                padding: isMobile ? '28px 20px' : '32px 48px',
+                padding: isMobile ? '10px 20px' : '32px 48px',
                 textAlign: 'center',
             }}
         >
-            {/* <p
+            <p
                 style={{
                     fontFamily: '"Times New Roman", serif',
                     color: COLORS.white,
@@ -26,7 +26,7 @@ export default function Footer() {
                 }}
             >
                 PRECISÃO CLIMATIZAÇÕES
-            </p> */}
+            </p>
             {/* <p style={{ fontSize: '0.88rem', marginBottom: 6 }}>{CONTACT.city}</p> */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap', marginBottom: 16 }}>
                 <a

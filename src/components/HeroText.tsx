@@ -13,12 +13,13 @@ export default function HeroText() {
         // ===== HERO — APRESENTAÇÃO DA EMPRESA =====
         <div
             style={{
+                position: 'relative',
                 minHeight: isMobile ? 'auto' : '80vh',
                 background: `linear-gradient(135deg, ${COLORS.primaryDark} 0%, ${COLORS.primary} 60%, ${COLORS.primaryLight} 100%)`,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: isMobile ? '48px 20px' : '64px 80px',
+                padding: isMobile ? '20px 20px 100px' : '80px 80px 140px',
             }}
         >
             <div
@@ -84,6 +85,33 @@ export default function HeroText() {
                         </p>
                     ))}
                 </div>
+            </div>
+
+            {/* Ícone Animado para Scroll (Afasta o final para visualizar que há mais coisas) */}
+            <div
+                className="animate-bounce"
+                style={{
+                    position: 'absolute',
+                    bottom: 40,
+                    left: '50%',
+                    marginLeft: -16,
+                    color: 'rgba(255,255,255,0.8)',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                }}
+            >
+                <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
             </div>
         </div>
     )

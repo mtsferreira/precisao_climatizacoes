@@ -52,7 +52,7 @@ function Card({ icon, title, text, isMobile }: CardProps) {
             style={{
                 backgroundColor: hovered ? COLORS.primary : COLORS.white,
                 borderRadius: 12,
-                padding: isMobile ? '24px 20px' : '28px 24px',
+                padding: isMobile ? '10px 10px' : '28px 24px',
                 boxShadow: hovered ? '0 8px 24px rgba(8,77,110,0.3)' : '0 2px 10px rgba(8,77,110,0.1)',
                 transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
                 transition: 'all 0.25s ease',
@@ -106,7 +106,13 @@ export default function FeatureCards() {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: isMobile ? '48px 16px' : '56px 48px',
+                padding: isMobile ? '72px 16px 64px' : '96px 48px 80px',
+                position: 'relative',
+                marginTop: '-40px',
+                borderTopLeftRadius: '32px',
+                borderTopRightRadius: '32px',
+                zIndex: 11,
+                boxShadow: '0 -10px 30px rgba(0,0,0,0.05)',
             }}
         >
             {/* Título da seção */}

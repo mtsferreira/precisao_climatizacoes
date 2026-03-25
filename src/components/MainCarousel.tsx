@@ -29,12 +29,12 @@ export default function MainCarousel() {
         [side]: isMobile ? 6 : 14,
         transform: 'translateY(-50%)',
         zIndex: 20,
-        background: 'rgba(8,77,110,0.55)',
+        background: 'rgba(128, 128, 128, 0.55)', // cinza médio
         color: '#fff',
         border: 'none',
-        borderRadius: '50%',
-        width: isMobile ? 36 : 44,
-        height: isMobile ? 36 : 44,
+        borderRadius: '10px',
+        width: isMobile ? 30 : 40,
+        height: isMobile ? 60 : 70,
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
@@ -44,8 +44,21 @@ export default function MainCarousel() {
     })
 
     return (
-        // ===== CARROSSEL DAS FOTOS (Fundo mantido padrão mas agora com foco nas fotos) =====
-        <div style={{ position: 'relative', overflow: 'hidden', width: '100%', backgroundColor: COLORS.lightBg }}>
+        // ===== CARROSSEL DAS FOTOS (Transição suave por sobreposição "Stacking Layer") =====
+        <div
+            style={{
+                position: 'relative',
+                overflow: 'hidden',
+                width: '100%',
+                backgroundColor: COLORS.lightBg,
+                marginTop: '-40px',
+                borderRadius: '50% 50% 0 0 / 30px 30px 0 0',
+                paddingTop: '40px',
+                paddingBottom: '32px',
+                zIndex: 10,
+                boxShadow: '0 -10px 30px rgba(0,0,0,0.08)',
+            }}
+        >
             {/* Contêiner das páginas */}
             <div style={{ position: 'relative', width: '100%', minHeight: 400 }}>
                 {slides.map((slide, i) => {
