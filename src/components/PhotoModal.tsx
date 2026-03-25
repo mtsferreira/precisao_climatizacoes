@@ -110,7 +110,16 @@ export default function PhotoModal({ images, title, startIndex, onClose }: Photo
       {/* Imagem principal */}
       <div
         onClick={e => e.stopPropagation()}
-        style={{ position: 'relative', flex: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: isMobile ? '8px' : '16px' }}
+        style={{
+          position: 'relative',
+          flex: 1,
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: isMobile ? '8px' : '16px',
+          minHeight: 0, // Necessário para o flex-child não estourar a tela mantendo a foto inteira
+        }}
       >
         <img
           src={images[current]}

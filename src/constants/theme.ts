@@ -19,7 +19,7 @@ export const COLORS = {
 // INFORMAÇÕES DE CONTATO — altere aqui para atualizar contatos
 // ============================================================
 export const CONTACT = {
-    whatsappNumber: '5541997764683', // Número com DDI (55) + DDD + número
+    whatsappNumber: '5541997764683',
     whatsappDisplay: '(41) 99776-4683',
     email: 'precisaoclimatizacoes@gmail.com',
     city: 'Curitiba - PR',
