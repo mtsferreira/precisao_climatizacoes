@@ -8,33 +8,65 @@ export default function MainCarousel() {
     const [current, setCurrent] = useState(0)
     const isMobile = useIsMobile()
 
-    // ============================================================
-    // CARROSSEL APENAS PARA FOTOS
-    // ============================================================
+    // Estados para controle do gesto de deslizar (swipe)
+    const [touchStart, setTouchStart] = useState<number | null>(null)
+    const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+    // Configurações das sessões
     const slides = photoSections.map((section, idx) => (
         <PhotoSection key={section.id} section={section} isActive={current === idx} />
     ))
 
     const total = slides.length
+    const slideLabels = photoSections.map((s) => s.title)
 
+    // Navegação
     const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total])
     const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total])
 
-    // Labels para os dots de navegação
-    const slideLabels = photoSections.map((s) => s.title)
+    // ============================================================
+    // LÓGICA DE GESTOS (SWIPE)
+    // ============================================================
+    const minSwipeDistance = 50 // distância mínima em pixels para ativar a troca
 
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null)
+        setTouchStart(e.targetTouches[0].clientX)
+    }
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX)
+    }
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return
+
+        const distance = touchStart - touchEnd
+        const isLeftSwipe = distance > minSwipeDistance
+        const isRightSwipe = distance < -minSwipeDistance
+
+        if (isLeftSwipe) {
+            next()
+        } else if (isRightSwipe) {
+            prev()
+        }
+    }
+
+    // ============================================================
+    // ESTILOS
+    // ============================================================
     const arrowStyle = (side: 'left' | 'right') => ({
         position: 'absolute' as const,
         top: '50%',
         [side]: isMobile ? 6 : 14,
         transform: 'translateY(-50%)',
         zIndex: 20,
-        background: 'rgba(128, 128, 128, 0.55)', // cinza médio
+        background: 'rgba(128, 128, 128, 0.55)',
         color: '#fff',
         border: 'none',
-        borderRadius: '10px',
+        borderRadius: '5px',
         width: isMobile ? 30 : 40,
-        height: isMobile ? 60 : 70,
+        height: isMobile ? 90 : 80,
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
@@ -44,8 +76,11 @@ export default function MainCarousel() {
     })
 
     return (
-        // ===== CARROSSEL DAS FOTOS (Transição suave por sobreposição "Stacking Layer") =====
         <div
+            // Handlers de toque injetados no container principal
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
             style={{
                 position: 'relative',
                 overflow: 'hidden',
@@ -57,6 +92,8 @@ export default function MainCarousel() {
                 paddingBottom: '32px',
                 zIndex: 10,
                 boxShadow: '0 -10px 30px rgba(0,0,0,0.08)',
+                // touchAction: 'pan-y' permite scroll vertical mas captura o horizontal para o JS
+                touchAction: 'pan-y',
             }}
         >
             {/* Contêiner das páginas */}
@@ -85,12 +122,11 @@ export default function MainCarousel() {
                 })}
             </div>
 
-            {/* Botão anterior */}
+            {/* Setas (Aparecem em ambos, mas o swipe agora funciona também) */}
             <button onClick={prev} style={arrowStyle('left')} aria-label="Foto anterior">
                 ‹
             </button>
 
-            {/* Botão próximo */}
             <button onClick={next} style={arrowStyle('right')} aria-label="Próxima foto">
                 ›
             </button>

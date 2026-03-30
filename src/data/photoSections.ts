@@ -52,7 +52,7 @@ export interface PhotoSectionData {
 export const photoSections: PhotoSectionData[] = [
     {
         id: 'sessao1',
-        title: 'Foto - Sessão 1',
+        title: 'Soluções Industriais e Comerciais',
         // Texto descritivo da sessão — altere conforme necessário
         description:
             'Realizamos instalações e manutenções em ambientes industriais e comerciais de grande porte. Nossos técnicos garantem que cada equipamento opere com máxima eficiência, assegurando conforto térmico e a vida útil dos sistemas.',
@@ -61,7 +61,7 @@ export const photoSections: PhotoSectionData[] = [
     },
     {
         id: 'sessao2',
-        title: 'Foto - Sessão 2',
+        title: 'Instalações de Alta Performance',
         description:
             'Do lado externo ao conforto interno, cuidamos de cada detalhe com atenção e precisão. Nossas instalações seguem rigorosos padrões técnicos para garantir a melhor circulação e qualidade do ar em qualquer ambiente.',
         images: primeiroImages,
@@ -69,7 +69,7 @@ export const photoSections: PhotoSectionData[] = [
     },
     {
         id: 'sessao3',
-        title: 'Foto - Sessão 3',
+        title: 'Nossa Equipe em Ação',
         description:
             'Conheça a equipe por trás de cada serviço. Profissionais comprometidos e apaixonados pelo que fazem, prontos para atender com pontualidade, respeito e excelência técnica.',
         images: selfieImages,

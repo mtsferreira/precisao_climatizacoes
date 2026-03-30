@@ -68,7 +68,7 @@ export default function HeroText() {
                         'Nós trabalhamos na área de serviços de climatização em geral, e, assim como você, sabemos quão importante é ter um equipamento bem cuidado, pois resultará, além da qualidade do ar no ambiente, vida útil do equipamento, economia no consumo de energia e muitos outros.',
                         'Pensando nisso, nós da Precisão Climatizações dispomos de um trabalho sério, que vem evoluindo, porque nos colocamos no lugar do cliente, em tudo que ele espera de uma boa manutenção sem incômodo com boas condições e grande satisfação.',
                         'Atuamos também nas áreas civis, elétricas e hidráulicas, tudo isso em um só lugar para sua comodidade.',
-                        'Estamos prontos para atendê-los 24 horas por dia, é só chamar!',
+                        'Estamos prontos para atendê-los, é só chamar!',
                     ].map((para, i) => (
                         <p
                             key={i}
